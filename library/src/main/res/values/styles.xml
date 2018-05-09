@@ -8,4 +8,30 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="textoBlancoBold">
+        <item name="fontPath">fonts/helvetica-bold.ttf</item>
+        <item name="android:textSize">@dimen/texto_bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="textoBlanco">
+        <item name="fontPath">fonts/helvetica-regular.ttf</item>
+        <item name="android:textSize">@dimen/texto_noraml</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="textoBlackBold">
+        <item name="fontPath">fonts/helvetica-bold.ttf</item>
+        <item name="android:textSize">@dimen/texto_bold</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="textoBlack">
+        <item name="fontPath">fonts/helvetica-regular.ttf</item>
+        <item name="android:textSize">@dimen/texto_noraml</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
 </resources>

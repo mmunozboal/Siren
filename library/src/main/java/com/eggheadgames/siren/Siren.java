@@ -2,6 +2,7 @@ package com.eggheadgames.siren;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.support.annotation.VisibleForTesting;
 
@@ -43,6 +44,8 @@ public class Siren {
     protected Context mApplicationContext;
     private ISirenListener mSirenListener;
     private WeakReference<Activity> mActivityRef;
+    private String mDesc;
+    private Bitmap mImagen;
 
     /**
      * Determines alert type during version code verification
@@ -123,6 +126,14 @@ public class Siren {
         this.mSirenListener = sirenListener;
     }
 
+    public void setmDesc(String desc){
+        this.mDesc = desc;
+    }
+
+    public void setmImagen(Bitmap mImagen) {
+        this.mImagen = mImagen;
+    }
+
     public void setVersionCodeUpdateAlertType(SirenAlertType versionCodeUpdateAlertType) {
         this.versionCodeUpdateAlertType = versionCodeUpdateAlertType;
     }
@@ -130,6 +141,8 @@ public class Siren {
     public void setLanguageLocalization(SirenSupportedLocales localization) {
         forceLanguageLocalization = localization;
     }
+
+
 
     @VisibleForTesting
     protected void performVersionCheck(String appDescriptionUrl) {
@@ -165,7 +178,7 @@ public class Siren {
     @VisibleForTesting
     protected SirenAlertWrapper getAlertWrapper(SirenAlertType alertType, String appVersion) {
         Activity activity = mActivityRef.get();
-        return new SirenAlertWrapper(activity, mSirenListener, alertType, appVersion, forceLanguageLocalization, getSirenHelper());
+        return new SirenAlertWrapper(activity, mSirenListener, alertType, appVersion, forceLanguageLocalization, getSirenHelper(), mDesc, mImagen);
     }
 
     protected SirenHelper getSirenHelper() {

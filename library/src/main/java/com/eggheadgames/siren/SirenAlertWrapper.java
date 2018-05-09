@@ -3,10 +3,12 @@ package com.eggheadgames.siren;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.graphics.Bitmap;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
@@ -19,15 +21,19 @@ public class SirenAlertWrapper {
     private final String mMinAppVersion;
     private final SirenSupportedLocales mLocale;
     private final SirenHelper mSirenHelper;
+    private final String mDesc;
+    private final Bitmap mImagen;
 
     public SirenAlertWrapper(Activity activity, ISirenListener sirenListener, SirenAlertType sirenAlertType,
-                             String minAppVersion, SirenSupportedLocales locale, SirenHelper sirenHelper) {
+                             String minAppVersion, SirenSupportedLocales locale, SirenHelper sirenHelper, String mDesc, Bitmap mImagen) {
         this.mSirenListener = sirenListener;
         this.mSirenAlertType = sirenAlertType;
         this.mMinAppVersion = minAppVersion;
         this.mLocale = locale;
         this.mSirenHelper = sirenHelper;
         this.mActivityRef = new WeakReference<>(activity);
+        this.mDesc = mDesc;
+        this.mImagen = mImagen;
     }
 
 
@@ -66,13 +72,23 @@ public class SirenAlertWrapper {
 
     private void setupDialog(final AlertDialog dialog) {
         TextView message = (TextView) dialog.findViewById(R.id.tvSirenAlertMessage);
-        Button update = (Button) dialog.findViewById(R.id.btnSirenUpdate);
-        Button nextTime = (Button) dialog.findViewById(R.id.btnSirenNextTime);
-        final Button skip = (Button) dialog.findViewById(R.id.btnSirenSkip);
+        TextView update = (TextView) dialog.findViewById(R.id.btnSirenUpdate);
+        TextView nextTime = (TextView) dialog.findViewById(R.id.btnSirenNextTime);
+        final TextView skip = (TextView) dialog.findViewById(R.id.btnSirenSkip);
+        TextView desc = (TextView) dialog.findViewById(R.id.txtTituFinger);
+        ImageView imageView = (ImageView) dialog.findViewById(R.id.fingerprint_icon);
 
-        update.setText(mSirenHelper.getLocalizedString(mActivityRef.get(), R.string.update, mLocale));
-        nextTime.setText(mSirenHelper.getLocalizedString(mActivityRef.get(), R.string.next_time, mLocale));
-        skip.setText(mSirenHelper.getLocalizedString(mActivityRef.get(), R.string.skip_this_version, mLocale));
+        //update.setText(mSirenHelper.getLocalizedString(mActivityRef.get(), R.string.update, mLocale));
+        //nextTime.setText(mSirenHelper.getLocalizedString(mActivityRef.get(), R.string.next_time, mLocale));
+        //skip.setText(mSirenHelper.getLocalizedString(mActivityRef.get(), R.string.skip_this_version, mLocale));
+
+        if (desc != null && !desc.equals("")){
+            desc.setText(mDesc);
+        }
+
+        if (mImagen != null ){
+            imageView.setImageBitmap(mImagen);
+        }
 
         message.setText(mSirenHelper.getAlertMessage(mActivityRef.get(), mMinAppVersion, mLocale));
 
