@@ -86,7 +86,7 @@
                 android:layout_marginRight="@dimen/pm5"
                 android:gravity="center"
                 android:text="@string/posponer"
-                android:background="@drawable/btn_acept"
+                android:background="@drawable/btn_cancel"
                 android:textSize="@dimen/ts15"
                 style="@style/textoBlancoBold"/>
 

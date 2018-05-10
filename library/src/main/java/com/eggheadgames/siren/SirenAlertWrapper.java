@@ -58,7 +58,7 @@ public class SirenAlertWrapper {
     private AlertDialog initDialog(Activity activity) {
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(activity);
 
-        alertBuilder.setTitle(mSirenHelper.getLocalizedString(mActivityRef.get(), R.string.update_available, mLocale));
+        //alertBuilder.setTitle(mSirenHelper.getLocalizedString(mActivityRef.get(), R.string.update_available, mLocale));
         alertBuilder.setCancelable(false);
 
         View dialogView = LayoutInflater.from(activity).inflate(R.layout.siren_dialog, null);
@@ -75,7 +75,7 @@ public class SirenAlertWrapper {
         TextView update = (TextView) dialog.findViewById(R.id.btnSirenUpdate);
         TextView nextTime = (TextView) dialog.findViewById(R.id.btnSirenNextTime);
         final TextView skip = (TextView) dialog.findViewById(R.id.btnSirenSkip);
-        TextView desc = (TextView) dialog.findViewById(R.id.txtTituFinger);
+        TextView desc = (TextView) dialog.findViewById(R.id.fingerprint_description);
         ImageView imageView = (ImageView) dialog.findViewById(R.id.fingerprint_icon);
 
         //update.setText(mSirenHelper.getLocalizedString(mActivityRef.get(), R.string.update, mLocale));
