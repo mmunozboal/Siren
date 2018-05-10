@@ -87,7 +87,7 @@
                 android:layout_marginRight="@dimen/pm5"
                 android:gravity="center"
                 android:text="@string/posponer"
-                android:background="@drawable/btn_cancel"
+                android:background="@drawable/btn_cancel_siren"
                 android:textSize="@dimen/ts15"
                 style="@style/textoBlancoBold"/>
 
@@ -101,7 +101,7 @@
                 android:layout_marginLeft="@dimen/pm5"
                 android:gravity="center"
                 android:text="@string/actualizar"
-                android:background="@drawable/btn_acept"
+                android:background="@drawable/btn_acept_siren"
                 android:textSize="@dimen/ts15"
                 style="@style/textoBlancoBold"/>
 
