@@ -8,6 +8,7 @@
     <string name="skip_this_version">Skip this version</string>
     <string name="actualizaci_n_disponible">Actualización Disponible</string>
     <string name="desc_version">Existe una nueva versión con nuevas funcionalidades y mejoras. Descargatela para disfrutar de ellas.</string>
+    <string name="desc_version_app">Existe una nueva versión para la aplicación %1$s con nuevas funcionalidades y mejoras. Descargatela para disfrutar de ellas.</string>
     <string name="posponer">Posponer</string>
     <string name="actualizar">Actualizar</string>
     <string name="no_volver_a_mostrar">No volver a mostrar</string>

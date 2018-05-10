@@ -3,6 +3,7 @@ package com.eggheadgames.siren;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ public class SirenAlertWrapper {
     private final SirenHelper mSirenHelper;
     private final String mDesc;
     private final Bitmap mImagen;
+    private final Context ctx;
 
     public SirenAlertWrapper(Activity activity, ISirenListener sirenListener, SirenAlertType sirenAlertType,
                              String minAppVersion, SirenSupportedLocales locale, SirenHelper sirenHelper, String mDesc, Bitmap mImagen) {
@@ -34,6 +36,7 @@ public class SirenAlertWrapper {
         this.mActivityRef = new WeakReference<>(activity);
         this.mDesc = mDesc;
         this.mImagen = mImagen;
+        this.ctx = activity;
     }
 
 
@@ -83,7 +86,7 @@ public class SirenAlertWrapper {
         //skip.setText(mSirenHelper.getLocalizedString(mActivityRef.get(), R.string.skip_this_version, mLocale));
 
         if (desc != null && !desc.equals("")){
-            desc.setText(mDesc);
+            desc.setText(ctx.getResources().getString(R.string.desc_version_app, mDesc));
         }
 
         if (mImagen != null ){
