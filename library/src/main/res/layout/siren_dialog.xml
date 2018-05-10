@@ -34,7 +34,8 @@
             android:text="@string/no_volver_a_mostrar"
             android:textSize="@dimen/ts15"
             android:textColor="@color/colorPrimary"
-            style="@style/textoBlackBold"/>
+            style="@style/textoBlackBold"
+            android:visibility="gone"/>
 
 
         <ImageView
