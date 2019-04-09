@@ -109,6 +109,11 @@ public class SirenAlertWrapper {
             });
         }
 
+        if (mSirenAlertType == SirenAlertType.FORCE){
+            nextTime.setVisibility(View.GONE);
+        }
+
+
         if (mSirenAlertType == SirenAlertType.OPTION
                 || mSirenAlertType == SirenAlertType.SKIP) {
             nextTime.setVisibility(View.VISIBLE);
